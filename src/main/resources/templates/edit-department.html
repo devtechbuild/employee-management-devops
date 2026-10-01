@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Department</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>DevTestBuildClass</h2>
+
+            <p>Employee Portal</p>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="/employees" class="menu-item">
+                👥 Employees
+            </a>
+
+            <a href="/departments" class="menu-item active">
+                🏢 Departments
+            </a>
+
+            <a href="/profile" class="menu-item">
+                👤 My Profile
+            </a>
+
+            <a href="/login" class="menu-item logout">
+                🚪 Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>Edit Department</h1>
+
+                <p>
+                    Update department information
+                </p>
+
+            </div>
+
+            <div class="user-info">
+
+                <div class="user-avatar">
+                    D
+                </div>
+
+                <div>
+
+                    <strong>Admin User</strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Edit Form -->
+
+        <section class="employee-form-card">
+
+            <div class="form-header">
+
+                <h2>Department Information</h2>
+
+                <p>
+                    Update the department details below
+                </p>
+
+            </div>
+
+
+            <form
+                    th:action="@{/departments/edit/{id}(id=${department.id})}"
+                    th:object="${department}"
+                    method="post">
+
+                <div class="form-grid">
+
+
+                    <!-- Department Name -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Department Name
+                        </label>
+
+                        <input
+                                type="text"
+                                id="name"
+                                th:field="*{name}"
+                                placeholder="Enter department name"
+                                required>
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status
+                        </label>
+
+                        <select
+                                id="status"
+                                th:field="*{status}"
+                                required>
+
+                            <option value="ACTIVE">
+                                Active
+                            </option>
+
+                            <option value="INACTIVE">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group full-width">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                            id="description"
+                            name="description"
+                            rows="5"
+                            th:field="*{description}"
+                            placeholder="Enter department description">
+                    </textarea>
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="form-actions">
+
+                    <a
+                            href="/departments"
+                            class="cancel-button">
+                        Cancel
+                    </a>
+
+                    <button
+                            type="submit"
+                            class="save-button">
+                        Update Department
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

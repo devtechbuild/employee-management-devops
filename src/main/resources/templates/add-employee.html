@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Management - Add Employee</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      <h2>DevTestBuildClass</h2>
+      <p>Employee Portal</p>
+    </div>
+
+    <nav class="sidebar-menu">
+
+      <a href="/dashboard" class="menu-item">
+        🏠 Dashboard
+      </a>
+
+      <a href="/employees" class="menu-item active">
+        👥 Employees
+      </a>
+
+      <a href="/departments" class="menu-item">
+        🏢 Departments
+      </a>
+
+      <a href="/profile" class="menu-item">
+        👤 My Profile
+      </a>
+
+      <a href="/login" class="menu-item logout">
+        🚪 Logout
+      </a>
+
+    </nav>
+
+  </aside>
+
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+
+      <div>
+        <h1>Add Employee</h1>
+        <p>Create a new employee record</p>
+      </div>
+
+      <div class="user-info">
+
+        <div class="user-avatar">
+          D
+        </div>
+
+        <div>
+          <strong>Admin User</strong>
+          <span>Administrator</span>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- Employee Form -->
+    <section class="employee-form-card">
+
+      <div class="form-header">
+        <h2>Employee Information</h2>
+        <p>Enter the employee details below</p>
+      </div>
+
+
+      <form th:action="@{/employees/add}" method="post">
+
+        <div class="form-grid">
+
+          <!-- Employee ID -->
+          <div class="form-group">
+            <label for="employeeId">
+              Employee ID
+            </label>
+
+            <input
+                    type="text"
+                    id="employeeId"
+                    name="employeeId"
+                    placeholder="Example: EMP005"
+                    required>
+          </div>
+
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">
+              Full Name
+            </label>
+
+            <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter full name"
+                    required>
+          </div>
+
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">
+              Email Address
+            </label>
+
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="employee@example.com"
+                    required>
+          </div>
+
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">
+              Phone Number
+            </label>
+
+            <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter phone number"
+                    required>
+          </div>
+
+
+          <!-- Department -->
+          <div class="form-group">
+
+            <label for="department">
+              Department
+            </label>
+
+            <select id="department" name="department" required>
+
+              <option value="">
+                Select Department
+              </option>
+
+              <option value="Engineering">
+                Engineering
+              </option>
+
+              <option value="QA">
+                QA
+              </option>
+
+              <option value="HR">
+                HR
+              </option>
+
+              <option value="Finance">
+                Finance
+              </option>
+
+              <option value="Sales">
+                Sales
+              </option>
+
+              <option value="Operations">
+                Operations
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Role -->
+          <div class="form-group">
+
+            <label for="role">
+              Role
+            </label>
+
+            <input
+                    type="text"
+                    id="role"
+                    name="role"
+                    placeholder="Example: SDET"
+                    required>
+
+          </div>
+
+
+          <!-- Joining Date -->
+          <div class="form-group">
+
+            <label for="joiningDate">
+              Joining Date
+            </label>
+
+            <input
+                    type="date"
+                    id="joiningDate"
+                    name="joiningDate"
+                    required>
+
+          </div>
+
+
+          <!-- Status -->
+          <div class="form-group">
+
+            <label for="status">
+              Status
+            </label>
+
+            <select id="status" name="status" required>
+
+              <option value="">
+                Select Status
+              </option>
+
+              <option value="ACTIVE">
+                Active
+              </option>
+
+              <option value="INACTIVE">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- Address -->
+
+        <div class="form-group full-width">
+
+          <label for="address">
+            Address
+          </label>
+
+          <textarea
+                  id="address"
+                  name="address"
+                  rows="4"
+                  placeholder="Enter employee address"></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="form-actions">
+
+          <a href="/employees" class="cancel-button">
+            Cancel
+          </a>
+
+          <button
+                  type="submit"
+                  class="save-button">
+            Save Employee
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Management - My Profile</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>DevTestBuildClass</h2>
+
+            <p>Employee Portal</p>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard"
+               class="menu-item">
+
+                🏠 Dashboard
+
+            </a>
+
+
+            <a href="/employees"
+               class="menu-item">
+
+                👥 Employees
+
+            </a>
+
+
+            <a href="/departments"
+               class="menu-item">
+
+                🏢 Departments
+
+            </a>
+
+
+            <a href="/profile"
+               class="menu-item active">
+
+                👤 My Profile
+
+            </a>
+
+
+            <!-- Real Spring Security Logout -->
+            <form th:action="@{/logout}"
+                  method="post"
+                  style="margin: 0;">
+
+                <button type="submit"
+                        class="menu-item logout"
+                        style="width: 100%; border: none; text-align: left; cursor: pointer;">
+
+                    🚪 Logout
+
+                </button>
+
+            </form>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <!-- Header -->
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View your account information
+                </p>
+
+            </div>
+
+
+            <div class="user-info">
+
+                <div class="user-avatar">
+
+                    <span
+                            th:text="${#strings.substring(user.username, 0, 1).toUpperCase()}">
+                        U
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <strong
+                            th:text="${user.username}">
+                        Username
+                    </strong>
+
+                    <span
+                            th:text="${user.role}">
+                        USER
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Profile Card -->
+        <section class="employee-table-card"
+                 style="padding: 35px;">
+
+            <div style="margin-bottom: 30px;">
+
+                <h2>Account Information</h2>
+
+                <p style="color: #777;">
+                    Your registered account details
+                </p>
+
+            </div>
+
+
+            <!-- Username -->
+            <div class="form-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input type="text"
+                       th:value="${user.username}"
+                       readonly>
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input type="email"
+                       th:value="${user.email}"
+                       readonly>
+
+            </div>
+
+
+            <!-- Role -->
+            <div class="form-group">
+
+                <label>
+                    Role
+                </label>
+
+                <input type="text"
+                       th:value="${user.role}"
+                       readonly>
+
+            </div>
+
+
+            <!-- Security Information -->
+            <div class="welcome-card"
+                 style="margin-top: 25px;">
+
+                <h3>
+                    🔐 Account Security
+                </h3>
+
+                <p>
+                    Your password is securely encrypted using
+                    BCrypt and is never displayed on this page.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

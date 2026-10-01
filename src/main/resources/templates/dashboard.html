@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Management - Dashboard</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      <h2>DevTestBuildClass</h2>
+      <p>Employee Portal</p>
+    </div>
+
+    <nav class="sidebar-menu">
+
+      <a href="/dashboard" class="menu-item active">
+        🏠 Dashboard
+      </a>
+
+      <a href="/employees" class="menu-item">
+        👥 Employees
+      </a>
+
+      <a href="/departments" class="menu-item">
+        🏢 Departments
+      </a>
+
+      <a href="/profile" class="menu-item">
+        👤 My Profile
+      </a>
+
+      <!-- Temporary logout link.
+           Real logout will be implemented with Spring Security. -->
+      <a href="/login" class="menu-item logout">
+        🚪 Logout
+      </a>
+
+    </nav>
+
+  </aside>
+
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+
+    <!-- Top Header -->
+    <header class="dashboard-header">
+
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome to Employee Management Portal</p>
+      </div>
+
+      <div class="user-info">
+
+        <div class="user-avatar">
+          D
+        </div>
+
+        <div>
+          <strong>Admin User</strong>
+          <span>Administrator</span>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- Dynamic Statistics -->
+    <section class="stats-container">
+
+      <!-- Total Employees -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          👥
+        </div>
+
+        <div>
+          <p>Total Employees</p>
+
+          <h2 th:text="${totalEmployees}">
+            0
+          </h2>
+        </div>
+
+      </div>
+
+
+      <!-- Total Departments -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🏢
+        </div>
+
+        <div>
+          <p>Departments</p>
+
+          <h2 th:text="${totalDepartments}">
+            0
+          </h2>
+        </div>
+
+      </div>
+
+
+      <!-- Active Employees -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🟢
+        </div>
+
+        <div>
+          <p>Active Employees</p>
+
+          <h2 th:text="${activeEmployees}">
+            0
+          </h2>
+        </div>
+
+      </div>
+
+
+      <!-- Inactive Employees -->
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🔴
+        </div>
+
+        <div>
+          <p>Inactive Employees</p>
+
+          <h2 th:text="${inactiveEmployees}">
+            0
+          </h2>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Welcome Section -->
+    <section class="welcome-card">
+
+      <h2>
+        Welcome to Employee Management Portal 👋
+      </h2>
+
+      <p>
+        Manage employees, departments and employee information
+        from one centralized application.
+      </p>
+
+    </section>
+
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+
+      <h2>Quick Actions</h2>
+
+      <div class="action-container">
+
+        <!-- Employee Action -->
+        <a href="/employees" class="action-card">
+
+          <span>👥</span>
+
+          <h3>
+            Manage Employees
+          </h3>
+
+          <p>
+            View and manage employee information
+          </p>
+
+        </a>
+
+
+        <!-- Department Action -->
+        <a href="/departments" class="action-card">
+
+          <span>🏢</span>
+
+          <h3>
+            Departments
+          </h3>
+
+          <p>
+            Manage company departments
+          </p>
+
+        </a>
+
+
+        <!-- Profile Action -->
+        <a href="/profile" class="action-card">
+
+          <span>👤</span>
+
+          <h3>
+            My Profile
+          </h3>
+
+          <p>
+            View and update your profile
+          </p>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+</div>
+
+</body>
+
+</html>

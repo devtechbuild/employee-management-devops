@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Management - Register</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <!-- Logo -->
+    <div class="logo">
+      <h1>DevTestBuildClass</h1>
+      <p>Employee Management Portal</p>
+    </div>
+
+    <!-- Title -->
+    <div class="login-title">
+      <h2>Create Account</h2>
+      <p>Register to access the employee portal</p>
+    </div>
+
+    <!-- Error Message -->
+    <div th:if="${error}"
+         class="error-message"
+         th:text="${error}">
+    </div>
+
+    <!-- Registration Form -->
+    <form th:action="@{/register}"
+          th:object="${user}"
+          method="post">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+
+        <input type="text"
+               id="username"
+               th:field="*{username}"
+               placeholder="Create username"
+               required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+
+        <input type="email"
+               id="email"
+               th:field="*{email}"
+               placeholder="Enter your email"
+               required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+
+        <input type="password"
+               id="password"
+               th:field="*{password}"
+               placeholder="Create password"
+               required>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="login-button">
+        Create Account
+      </button>
+
+    </form>
+
+    <!-- Login Link -->
+    <div class="register-link">
+      Already have an account?
+      <a href="/login">Login</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2026 DevTestBuildClass
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Details</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>DevTestBuildClass</h2>
+
+            <p>Employee Portal</p>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="/employees" class="menu-item active">
+                👥 Employees
+            </a>
+
+            <a href="/departments" class="menu-item">
+                🏢 Departments
+            </a>
+
+            <a href="/profile" class="menu-item">
+                👤 My Profile
+            </a>
+
+            <a href="/login" class="menu-item logout">
+                🚪 Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>Employee Details</h1>
+
+                <p>
+                    View employee information
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <section class="employee-details-card">
+
+            <div class="employee-profile-header">
+
+                <div class="large-avatar">
+
+                    <span
+                            th:text="${#strings.substring(employee.fullName, 0, 1)}">
+                        E
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h2 th:text="${employee.fullName}">
+                        Employee Name
+                    </h2>
+
+                    <p th:text="${employee.role}">
+                        SDET
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-details-grid">
+
+                <div class="detail-item">
+
+                    <label>Employee ID</label>
+
+                    <span th:text="${employee.employeeId}">
+                        EMP001
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Full Name</label>
+
+                    <span th:text="${employee.fullName}">
+                        Employee Name
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Email</label>
+
+                    <span th:text="${employee.email}">
+                        employee@example.com
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Phone</label>
+
+                    <span th:text="${employee.phone}">
+                        9876543210
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Department</label>
+
+                    <span th:text="${employee.department}">
+                        Engineering
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Role</label>
+
+                    <span th:text="${employee.role}">
+                        SDET
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Joining Date</label>
+
+                    <span th:text="${employee.joiningDate}">
+                        2026-09-28
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <label>Status</label>
+
+                    <span
+                            class="status active-status"
+                            th:text="${employee.status}">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item address-detail">
+
+                    <label>Address</label>
+
+                    <span th:text="${employee.address}">
+                        Address
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="details-actions">
+
+                <a
+                        href="/employees"
+                        class="cancel-button">
+                    Back to Employees
+                </a>
+
+                <a
+                        th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                        class="save-button">
+                    Edit Employee
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
